@@ -1,0 +1,19 @@
+hello:build:
+    stage: build
+    script:
+      - make -C lab6/hello/ clean all
+    only:
+     - master
+    artifacts:
+      expire_in: 1 hour
+      paths:
+        - lab6/hello/hello
+
+hello:test:
+    stage: test
+    script:
+      - make -C lab6/hello clean tests
+    only:
+      - master
+    dependencies:
+      - hello:build
