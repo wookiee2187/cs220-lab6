@@ -1,15 +1,19 @@
-hello:build:
+language: c
+
+install: true 
+
+branches:
+   only:
+    - master
+jobs:
+  include:
     stage: build
     script:
-      - make -C lab6/hello/ clean all
-    only:
-     - master
+     - make -C lab6/hello/ clean all 
     artifacts:
       expire_in: 1 hour
       paths:
         - lab6/hello/hello
-
-hello:test:
     stage: test
     script:
       - make -C lab6/hello clean tests
