@@ -10,14 +10,14 @@ jobs:
   include:
     stage: build
     script:
-     - make -C lab6/hello/ clean all 
+     - make -C hello/ clean all 
     artifacts:
       expire_in: 1 hour
       paths:
-        - lab6/hello/hello
+        - hello/hello
     stage: test
     script:
-      - make -C lab6/hello clean tests
+      - make -C hello clean tests
     only:
       - master
     dependencies:
