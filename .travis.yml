@@ -8,14 +8,14 @@ branches:
     - master
 jobs:
   include:
-    stage: build
+   - stage: build
     script:
      - make -C hello/ clean all 
     artifacts:
       expire_in: 1 hour
       paths:
         - hello/hello
-    stage: test
+  - stage: test
     script:
       - make -C hello clean tests
     only:
