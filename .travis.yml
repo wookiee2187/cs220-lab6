@@ -11,14 +11,8 @@ jobs:
    - stage: build
     script:
      - make -C hello/ clean all 
-    artifacts:
-      expire_in: 1 hour
-      paths:
-        - hello/hello
   - stage: test
     script:
       - make -C hello clean tests
     only:
       - master
-    dependencies:
-      - hello:build
