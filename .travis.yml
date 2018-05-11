@@ -13,6 +13,6 @@ jobs:
      - make -C hello/ clean all 
   - stage: test
     script:
-      - make -C hello clean tests
+      - ./hello
     only:
       - master
